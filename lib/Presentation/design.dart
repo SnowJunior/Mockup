@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interapp/Constants/color.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class DesignPage extends StatelessWidget {
   const DesignPage(
@@ -88,7 +89,68 @@ class DesignPage extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(
+          height: 50,
+        ),
+        const CarouselSlider()
       ],
+    );
+  }
+}
+
+class CarouselSlider extends StatefulWidget {
+  const CarouselSlider(
+      {Key? key, CarouselOptions? options, List<Widget>? items})
+      : super(key: key);
+
+  @override
+  State<CarouselSlider> createState() => _CarouselSliderState();
+}
+
+class _CarouselSliderState extends State<CarouselSlider> {
+  int _current = 0;
+
+  final List<String> images = [
+    "assets/images/ht1.jpeg"
+        "assets/images/ht2.jpeg"
+        "assets/images/ht3.jpeg"
+        "assets/images/ht4.jpeg"
+        "assets/images/ht5.jpeg"
+  ];
+
+  final List<String> names = [
+    "Neuro-link"
+        "JAVES"
+        "Artificial Intelligence"
+        "Archnet"
+        "6G"
+  ];
+
+  List<Widget> generateImageTiles() {
+    return images
+        .map((value) => ClipRRect(
+              child: Image.asset(
+                value,
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ))
+        .toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      width: size.width*0.5,
+      child: Stack(
+        children: [
+          CarouselSlider(
+            items: generateImageTiles(),
+            options: CarouselOptions(),
+          ),
+        ],
+      ),
     );
   }
 }
