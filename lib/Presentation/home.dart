@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final screens = [
     const InfoScreen(),
-    const DesignPage(emailController: "", nameController: '', phoneController: '',),
+    const DesignPage(emailController: '', nameController: '', phoneController: '',),
     const ResponseScreen(),
     const DictionaryScreen()
   ];
