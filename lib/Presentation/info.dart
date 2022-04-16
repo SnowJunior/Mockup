@@ -60,6 +60,7 @@ class _InfoScreenState extends State<InfoScreen> {
           child: Column(
             children: [
               TextFormField(
+                key: const ValueKey(1),
                 onChanged: (_name) {
                   nValue = _name;
                 },
@@ -85,7 +86,9 @@ class _InfoScreenState extends State<InfoScreen> {
               const SizedBox(
                 height: 20,
               ),
-              TextFormField( onChanged: (_email) {
+              TextFormField( 
+                key: const ValueKey(2),
+                onChanged: (_email) {
                 eValue = _email;
               },
               keyboardType: TextInputType.emailAddress,
@@ -117,6 +120,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 height: 20,
               ),
               TextFormField(
+                key: const ValueKey(3),
                  onChanged: (_mobile) {
                 mValue = _mobile;
               },

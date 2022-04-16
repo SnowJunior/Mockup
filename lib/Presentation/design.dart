@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interapp/Constants/color.dart';
 
-
 class DesignPage extends StatelessWidget {
   const DesignPage(
       {Key? key,
@@ -93,12 +92,20 @@ class DesignPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          
-          // const CarouselSlider()
+          buildCard()
         ],
       ),
     );
   }
+}
+
+Widget buildCard() {
+  return Container(
+    width: 200,
+    height: 200,
+    color: Colors.green,
+    child: Image.asset("assets/images/ht1.jpeg")
+  );
 }
 
 // var imageTitles = [
