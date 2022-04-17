@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:interapp/model/todo.dart';
 import '../Constants/color.dart';
+import 'dart:convert' as convert;
+
+Future Todos() async {
+  final response = await http
+      .get(Uri.parse('https:jsonplaceholder.typicode.com/todos?_limit=5'));
+
+  // var jsonData = convert.jsonDecode(response.body);
+  
+
+  if (response.statusCode == 200) {
+    return Todo.fromJson(convert.jsonDecode(response.body));
+  } else {
+    throw Exception("Failed to load todo");
+  }
+}
 
 class ResponseScreen extends StatefulWidget {
   const ResponseScreen({Key? key}) : super(key: key);
@@ -47,6 +63,30 @@ class _ResponseScreenState extends State<ResponseScreen> {
             ),
           ),
         ),
+        SizedBox(
+          child: Card(
+            child: FutureBuilder(
+                future: Todos(),
+                builder: (context, snapshot) {
+                  if (snapshot.data == null) {
+                    return const SizedBox(
+                      child: Center(
+                        child: Text("Loading Todo"),
+                      ),
+                    );
+                  } else {
+                    return ListView.builder(
+                        // itemCount: snapshot.data!.length,
+                        itemBuilder: (context, i) {
+                          return const ListTile(
+                            title: Text(''),
+                            subtitle:  Text(""),
+                          );
+                        });
+                  }
+                }),
+          ),
+        )
       ],
     );
   }

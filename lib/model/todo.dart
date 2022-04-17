@@ -1,3 +1,6 @@
+// To parse this JSON data, do
+
+
 import 'dart:convert';
 
 List<Todo> todoFromJson(String str) => List<Todo>.from(json.decode(str).map((x) => Todo.fromJson(x)));
