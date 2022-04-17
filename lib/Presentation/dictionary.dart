@@ -67,8 +67,8 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
             itemBuilder: (context, index) {
               return Card(
                 child: Column(
-                  children: [
-                    Text(),
+                  children: const [
+                    Text(''),
                   ],
                 ),
               );
