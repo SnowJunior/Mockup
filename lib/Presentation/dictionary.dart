@@ -10,19 +10,27 @@ class DictionaryScreen extends StatefulWidget {
 }
 
 class _DictionaryScreenState extends State<DictionaryScreen> {
-  // ignore: non_constant_identifier_names
-  
-  // List<String> Dictionary = {
-  //   '34': 'thirty-four', '90': 'ninety',
-  //   '91': 'ninety-one''21': 'twenty-one',
-  //   '61': 'sixty-one', '9': 'nine',
-  //   '2': 'two', '6': 'six', '3': 'three',
-  //   '8': 'eight', '80': 'eighty', '81': 'eighty-one',
-  //   'Ninety-Nine': '99', 'nine-hundred': '900'
-  // } as List<String>;
-
   @override
   Widget build(BuildContext context) {
+    List<Values> myDictionary = [
+      Values(digits: 34, words: "thirty-four"),
+      Values(digits: 90, words: 'ninety'),
+      Values(digits: 91, words: 'ninety-one'),
+      Values(digits: 21, words: 'twenty-one'),
+      Values(digits: 61, words: 'sixty-one'),
+      Values(digits: 9, words: 'nine'),
+      Values(digits: 2, words: 'two'),
+      Values(digits: 6, words: 'six'),
+      Values(digits: 3, words: 'three'),
+      Values(digits: 8, words: 'eight'),
+      Values(digits: 80, words: 'eighty'),
+      Values(digits: 81, words: 'eighty-one'),
+      Values(words: 'Ninety-Nine', digits: 99),
+      Values(words: 'nine-hundred', digits: 900),
+    ];
+
+    myDictionary.sort((a, b) => a.digits.compareTo(b.digits));
+
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -54,7 +62,25 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
             ),
           ),
         ),
+        ListView.builder(
+            itemCount: myDictionary.length,
+            itemBuilder: (context, index) {
+              return Card(
+                child: Column(
+                  children: [
+                    Text(),
+                  ],
+                ),
+              );
+            })
       ],
     );
   }
+}
+
+class Values {
+  String words;
+  int digits;
+
+  Values({required this.digits, required this.words});
 }

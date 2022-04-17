@@ -4,8 +4,6 @@ import 'package:interapp/model/todo.dart';
 import '../Constants/color.dart';
 import 'dart:convert' as convert;
 
-
-
 class ResponseScreen extends StatefulWidget {
   const ResponseScreen({Key? key}) : super(key: key);
 
@@ -32,9 +30,15 @@ class _ResponseScreenState extends State<ResponseScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    fetchTodo().then((value) => (_todo.addAll(value)));
+  void initState() {
+    fetchTodo().then(
+      (value) => (_todo.addAll(value)),
+    );
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -69,6 +73,9 @@ class _ResponseScreenState extends State<ResponseScreen> {
               ],
             ),
           ),
+        ),
+        const SizedBox(
+          height: 20,
         ),
         ListView.builder(
             itemCount: _todo.length,
