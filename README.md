@@ -1,4 +1,4 @@
-# interapp
+# Interapp
 
 My Project is called InterApp because I vision technology working together in the future.
 
@@ -13,7 +13,9 @@ git clone git@github.com:George-Onyango/Mockup.git
 
 cd interapp
 
-code . or run with the IDE best working for you
+code . 
+
+Or alternatively run with the IDE best working for you
 ```
 
 ## Contributing
