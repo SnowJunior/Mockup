@@ -92,7 +92,20 @@ class DesignPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          buildCard()
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+            children: [
+              buildCard(),
+              const SizedBox(width: 12,),
+              buildCard(),
+              const SizedBox(width: 12,),
+              buildCard(),
+              const SizedBox(width: 12,),
+              buildCard(),
+            ],
+          ),),
+
         ],
       ),
     );
