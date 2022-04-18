@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:interapp/Presentation/design.dart';
-import 'package:interapp/Presentation/dictionary.dart';
-import 'package:interapp/Presentation/response.dart';
+import 'package:interapp/presentation/design.dart';
+import 'package:interapp/presentation/dictionary_screen.dart';
+import 'package:interapp/presentation/response/response_screen.dart';
 
 import 'info.dart';
 
@@ -19,7 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final screens = [
     const InfoScreen(),
-    const DesignPage(emailController: '', nameController: '', phoneController: '',),
+     DesignPage(
+      emailController: '',
+      nameController: '',
+      phoneController: '',
+    ),
     const ResponseScreen(),
     const DictionaryScreen()
   ];
@@ -36,8 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
           () => currentIndex = index,
         ),
         items: [
-          SvgPicture.asset("assets/info.svg",color: Colors.white,),
-          SvgPicture.asset("assets/layout-fluid.svg",color: Colors.white),
+          SvgPicture.asset(
+            "assets/info.svg",
+            color: Colors.white,
+          ),
+          SvgPicture.asset("assets/layout-fluid.svg", color: Colors.white),
           SvgPicture.asset("assets/comment-alt(1).svg", color: Colors.white),
           SvgPicture.asset("assets/book-alt.svg", color: Colors.white),
         ],
