@@ -31,3 +31,4 @@ This project was a great test to prove developer skillset. I was able to check a
  - Data passing was achieved 
  - Responce API function was done and also ensured if the user is not connected what other function to be executed
  - Sign to show user that the api details are loading
+ - I also used MVVM architecture to run the api call
