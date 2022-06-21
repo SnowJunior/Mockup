@@ -1,11 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:interapp/presentation/design.dart';
-import 'package:interapp/presentation/dictionary_screen.dart';
+import 'package:interapp/presentation/screens/design_screen.dart';
+import 'package:interapp/presentation/screens/dictionary_screen.dart';
 import 'package:interapp/presentation/response/response_screen.dart';
 
-import 'info.dart';
+import '../presentation/screens/info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
