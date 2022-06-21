@@ -1,5 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:interapp/constants/color.dart';
+
+import '../../model/card.dart';
 
 class DesignPage extends StatelessWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -119,29 +122,48 @@ class DesignPage extends StatelessWidget {
 }
 
 Widget buildCard() {
-  return Column(
-    children: [
-      SizedBox(
-        height: 200,
-        child: AspectRatio(
-          aspectRatio: 4 / 3,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              'assets/images/ht1.jpeg',
-              fit: BoxFit.cover,
+  return CarouselSlider.builder(
+    itemCount: items.length,
+    options: CarouselOptions(
+      height: 400,
+      aspectRatio: 16 / 9,
+      viewportFraction: 0.8,
+      initialPage: 0,
+      enableInfiniteScroll: true,
+      reverse: false,
+      autoPlay: true,
+      autoPlayInterval: const Duration(seconds: 3),
+      autoPlayAnimationDuration: const Duration(milliseconds: 800),
+      autoPlayCurve: Curves.fastOutSlowIn,
+      enlargeCenterPage: true,
+      scrollDirection: Axis.horizontal,
+    ),
+    itemBuilder: (BuildContext context, int index, int realIndex) {
+      var displayItem = items[index];
+      return SizedBox(
+        child: SizedBox(
+          height: 200,
+          child: Column(children: [
+            Text(
+              displayItem.title,
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black),
             ),
-          ),
+            const SizedBox(
+              height: 10,
+            ),
+            ClipRRect(
+              child: Image.asset(
+                displayItem.assetImage,
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(20),
+            )
+          ]),
         ),
-      ),
-      const Text(
-        'Robotics',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
-      ),
-    ],
+      );
+    },
   );
 }
