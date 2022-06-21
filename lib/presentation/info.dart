@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interapp/constants/color.dart';
@@ -9,6 +11,9 @@ class InfoScreen extends StatefulWidget {
   @override
   State<InfoScreen> createState() => _InfoScreenState();
 }
+
+const email_Regex =
+    r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
 
 final _formKey = GlobalKey<FormState>();
 
@@ -82,6 +87,17 @@ class _InfoScreenState extends State<InfoScreen> {
                       ),
                     ),
                   ),
+                  validator: (val) {
+                    if (val!.isEmpty) {
+                      return "Name is required";
+                    } else if (val.length < 2) {
+                      return "Name must be longer than 2 characters";
+                    } else if (val.length > 20) {
+                      return "Name must not be more than 20 characters long";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 20,
@@ -110,12 +126,14 @@ class _InfoScreenState extends State<InfoScreen> {
                     ),
                   ),
                   validator: (email) {
-                    email = "onny@gmail.com";
-                    return RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                            .hasMatch(email.trim().toLowerCase())
-                        ? null
-                        : "Enter a valid Email";
+                    if (!RegExp(email_Regex)
+                        .hasMatch(email!.trim().toLowerCase())) {
+                      return "email must be valid";
+                    }
+                    if (email.isEmpty) {
+                      return "email is required";
+                    }
+                    return null;
                   },
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                 ),
@@ -149,14 +167,23 @@ class _InfoScreenState extends State<InfoScreen> {
                     ),
                   ),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter a number";
+                    } else if (value.length > 10) {
+                      return "Number is invalid";
+                    } else if (value.length < 2) {
+                      return "Number is too short";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                   child: const Text(
                     "Submit",
                     style: TextStyle(
@@ -176,16 +203,16 @@ class _InfoScreenState extends State<InfoScreen> {
 
   void submit() {
     if (_formKey.currentState!.validate() == true) {
-    Navigator.of(context).push(
+      Navigator.of(context).push(
         MaterialPageRoute(
             builder: (context) => DesignPage(
                   emailController: eValue,
                   nameController: nValue,
                   phoneController: mValue,
                 )),
-      ); 
-    } else{
-           ScaffoldMessenger.of(context)
+      );
+    } else {
+      ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
           SnackBar(
