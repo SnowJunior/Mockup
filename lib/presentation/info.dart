@@ -109,10 +109,11 @@ class _InfoScreenState extends State<InfoScreen> {
                   email = "onny@gmail.com";
                   return RegExp(
                               r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(email)
+                          .hasMatch(email.trim().toLowerCase())
                       ? null
                       : "Enter a valid Email";
                 },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               const SizedBox(
                 height: 20,
@@ -143,12 +144,14 @@ class _InfoScreenState extends State<InfoScreen> {
                     ),
                   ),
                 ),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               const SizedBox(
                 height: 30,
               ),
               ElevatedButton(
                 onPressed: () {
+                  
                   Navigator.of(context).push(
                     MaterialPageRoute(
                         builder: (context) => DesignPage(
