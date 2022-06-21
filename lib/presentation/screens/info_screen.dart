@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interapp/constants/color.dart';
-import 'package:interapp/presentation/design.dart';
+import 'package:interapp/presentation/screens/design_screen.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _InfoScreenState extends State<InfoScreen> {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [kPrimary, kSecondary]),
+                  colors: [Colors.blueAccent,Colors.blueAccent,]),
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 28.0, top: 48.0),
@@ -171,7 +171,7 @@ class _InfoScreenState extends State<InfoScreen> {
                         return "Enter a number";
                       } else if (value.length > 10) {
                         return "Number is invalid";
-                      } else if (value.length < 2) {
+                      } else if (value.length < 10) {
                         return "Number is too short";
                       } else {
                         return null;

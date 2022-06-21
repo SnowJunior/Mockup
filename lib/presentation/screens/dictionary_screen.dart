@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interapp/model/values.dart';
 
-import '../constants/color.dart';
+import '../../constants/color.dart';
 
 class DictionaryScreen extends StatefulWidget {
   const DictionaryScreen({Key? key}) : super(key: key);
@@ -29,8 +29,8 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                kPrimary,
-                kSecondary,
+                Colors.blueAccent,
+                Colors.blueAccent,
               ],
             ),
           ),

@@ -29,14 +29,24 @@ class DesignPage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [kPrimary, kSecondary],
+                  colors: [
+                    Colors.blueAccent,
+                    Colors.blueAccent,
+                  ],
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 28.0, top: 48.0),
+                padding: const EdgeInsets.only(left: 8.0, top: 48.0),
                 child: Row(
-                  children: const [
-                    Text(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios),
+                      color: Colors.white,
+                    ),
+                    const Text(
                       "Design",
                       style: TextStyle(
                         fontSize: 34,

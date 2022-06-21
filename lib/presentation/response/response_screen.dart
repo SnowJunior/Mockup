@@ -22,8 +22,8 @@ class ResponseScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                kPrimary,
-                kSecondary,
+                Colors.blueAccent,
+                Colors.blueAccent,
               ],
             ),
           ),
