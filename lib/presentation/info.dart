@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interapp/constants/color.dart';
@@ -25,179 +23,183 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        Container(
-          height: size.height * 0.2,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            height: size.height * 0.2,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [kPrimary, kSecondary]),
             ),
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [kPrimary, kSecondary]),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 28.0, top: 48.0),
-            child: Row(
-              children: const [
-                Text(
-                  "Information",
-                  style: TextStyle(
-                    fontSize: 34,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 18.0, right: 18.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                TextFormField(
-                  key: const ValueKey(1),
-                  onChanged: (_name) {
-                    nValue = _name;
-                  },
-                  keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.greenAccent, width: 1.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0),
-                    ),
-                    label: Text(
-                      "Enter Name",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  validator: (val) {
-                    if (val!.isEmpty) {
-                      return "Name is required";
-                    } else if (val.length < 2) {
-                      return "Name must be longer than 2 characters";
-                    } else if (val.length > 20) {
-                      return "Name must not be more than 20 characters long";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  key: const ValueKey(2),
-                  onChanged: (_email) {
-                    eValue = _email;
-                  },
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.greenAccent, width: 1.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0),
-                    ),
-                    label: Text(
-                      "Enter Email",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  validator: (email) {
-                    if (!RegExp(email_Regex)
-                        .hasMatch(email!.trim().toLowerCase())) {
-                      return "email must be valid";
-                    }
-                    if (email.isEmpty) {
-                      return "email is required";
-                    }
-                    return null;
-                  },
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  key: const ValueKey(3),
-                  onChanged: (_mobile) {
-                    mValue = _mobile;
-                  },
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.greenAccent, width: 1.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0),
-                    ),
-                    label: Text(
-                      "Enter Phone Number",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Enter a number";
-                    } else if (value.length > 10) {
-                      return "Number is invalid";
-                    } else if (value.length < 2) {
-                      return "Number is too short";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Submit",
+            child: Padding(
+              padding: const EdgeInsets.only(left: 28.0, top: 48.0),
+              child: Row(
+                children: const [
+                  Text(
+                    "Information",
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 34,
+                      fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 18.0, right: 18.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  TextFormField(
+                    key: const ValueKey(1),
+                    onChanged: (_name) {
+                      nValue = _name;
+                    },
+                    keyboardType: TextInputType.name,
+                    decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.greenAccent, width: 1.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      label: Text(
+                        "Enter Name",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val!.isEmpty) {
+                        return "Name is required";
+                      } else if (val.length < 2) {
+                        return "Name must be longer than 2 characters";
+                      } else if (val.length > 20) {
+                        return "Name must not be more than 20 characters long";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    key: const ValueKey(2),
+                    onChanged: (_email) {
+                      eValue = _email;
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.greenAccent, width: 1.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      label: Text(
+                        "Enter Email",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (email) {
+                      if (!RegExp(email_Regex)
+                          .hasMatch(email!.trim().toLowerCase())) {
+                        return "email must be valid";
+                      }
+                      if (email.isEmpty) {
+                        return "email is required";
+                      }
+                      return null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    key: const ValueKey(3),
+                    onChanged: (_mobile) {
+                      mValue = _mobile;
+                    },
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.greenAccent, width: 1.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      label: Text(
+                        "Enter Phone Number",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Enter a number";
+                      } else if (value.length > 10) {
+                        return "Number is invalid";
+                      } else if (value.length < 2) {
+                        return "Number is too short";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      submit();
+                    },
+                    child: const Text(
+                      "Submit",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
