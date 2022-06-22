@@ -53,11 +53,12 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ListView.builder(
-                itemCount: _myDictionary.length,
-                itemBuilder: (context, index) {
-                  var item = _myDictionary[index];
-                  return Row(
+            child: GridView.builder(
+              itemCount: _myDictionary.length,
+              itemBuilder: (context, index) {
+                var item = _myDictionary[index];
+                return Center(
+                  child: Row(
                     children: [
                       Text(
                         '${item.digits}',
@@ -70,8 +71,14 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
                         style: const TextStyle(fontSize: 18),
                       ),
                     ],
-                  );
-                }),
+                  ),
+                );
+              },
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0),
+            ),
           ),
         )
       ],
