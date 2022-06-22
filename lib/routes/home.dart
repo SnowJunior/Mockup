@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
-        color: const Color(0xFF007EA7),
+        color: Colors.blueAccent,
         backgroundColor: Colors.transparent,
         index: currentIndex,
         onTap: (index) => setState(
