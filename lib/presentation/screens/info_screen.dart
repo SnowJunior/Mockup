@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:interapp/constants/color.dart';
 import 'package:interapp/presentation/screens/design_screen.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -27,7 +26,7 @@ class _InfoScreenState extends State<InfoScreen> {
       child: Column(
         children: [
           Container(
-            height: size.height * 0.2,
+            height: size.height * 0.1,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -36,10 +35,13 @@ class _InfoScreenState extends State<InfoScreen> {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.blueAccent,Colors.blueAccent,]),
+                  colors: [
+                    Colors.blueAccent,
+                    Colors.blueAccent,
+                  ]),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 28.0, top: 48.0),
+              padding: const EdgeInsets.only(left: 28.0, top: 28.0),
               child: Row(
                 children: const [
                   Text(
@@ -70,19 +72,11 @@ class _InfoScreenState extends State<InfoScreen> {
                     },
                     keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.greenAccent, width: 1.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
                       label: Text(
                         "Enter Name",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -108,19 +102,11 @@ class _InfoScreenState extends State<InfoScreen> {
                     },
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.greenAccent, width: 1.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
                       label: Text(
                         "Enter Email",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -149,19 +135,11 @@ class _InfoScreenState extends State<InfoScreen> {
                       FilteringTextInputFormatter.digitsOnly,
                     ],
                     decoration: const InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.greenAccent, width: 1.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
                       label: Text(
                         "Enter Phone Number",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black,
                         ),
                       ),
                     ),

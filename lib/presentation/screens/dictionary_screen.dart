@@ -19,7 +19,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     return Column(
       children: [
         Container(
-          height: size.height * 0.2,
+          height: size.height * 0.1,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(20),
@@ -35,7 +35,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 28.0, top: 48.0),
+            padding: const EdgeInsets.only(left: 28.0, top: 28.0),
             child: Row(
               children: const [
                 Text(

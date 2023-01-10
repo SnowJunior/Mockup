@@ -12,7 +12,7 @@ class ResponseScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: size.height * 0.2,
+          height: size.height * 0.1,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(20),
@@ -28,7 +28,7 @@ class ResponseScreen extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 28.0, top: 48.0),
+            padding: const EdgeInsets.only(left: 28.0, top: 28.0),
             child: Row(
               children: const [
                 Text(
@@ -97,9 +97,9 @@ class ResponseScreen extends StatelessWidget {
                               const Spacer(),
                               Icon(
                                 todoItem.completed
-                                    ? Icons.check_box
+                                    ? Icons.check_box 
                                     : Icons.check_box_outline_blank,
-                                color: Colors.black,
+                                color: Colors.green,
                                 size: 32,
                               )
                             ],

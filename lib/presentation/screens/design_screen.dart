@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:interapp/constants/color.dart';
 
 import '../../model/card.dart';
 
@@ -23,7 +22,7 @@ class DesignPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: size.height * 0.2,
+              height: size.height * 0.1,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -39,7 +38,7 @@ class DesignPage extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 48.0),
+                padding: const EdgeInsets.only(left: 8.0, top: 28.0),
                 child: Row(
                   children: [
                     IconButton(
